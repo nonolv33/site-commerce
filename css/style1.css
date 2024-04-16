@@ -1,0 +1,296 @@
+
+body
+{
+    margin: 0px;
+    padding:0;
+}
+
+
+nav{
+    overflow: hidden;
+    transition: top 0.8s;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+.navbar a {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    top: -100px;
+
+}
+
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 70px;
+    width: auto;
+    
+}
+
+.titrePrincipal
+{
+    margin-top: 0;
+    padding:10px;
+    line-height: 70px;
+    height: 79px;
+    margin-right: 0;
+
+    background-color: #8B0000;
+    color: white;
+    font-family:sans-serif;
+    font-size: 30px;
+    text-emphasis: bold;
+
+    z-index: -1;
+
+    text-align: left;
+    padding-left: 100px;
+
+}
+
+
+.oùNousTrouver{
+    color: darkgrey ;
+    transition: all 0.5s;
+    position: relative;
+    right: -47%;
+    width: 15%;
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    z-index: 1;
+    font-family: arial;
+}
+
+.oùNousTrouver::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.3s;
+    background-color: 	rgb(232,232,232);
+}
+.oùNousTrouver:hover::before {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+}
+.oùNousTrouver::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid gainsboro;
+    transform: scale(1.2,1.2);
+}
+.oùNousTrouver:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+
+.nousContacter{
+    color: darkgrey ;
+    transition: all 0.5s;
+    position: relative;
+    right: -46%;
+    width: 15%;
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    z-index: 1;
+    font-family: arial;
+}
+
+.nousContacter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.3s;
+    background-color: 	rgb(232,232,232);
+}
+.nousContacter:hover::before {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+}
+.nousContacter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid gainsboro;
+    transform: scale(1.2,1.2);
+}
+.nousContacter:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+
+
+
+.parallax {
+    background-image: url("../images/exterieur.JPG");
+
+    color: white;
+    font-family: Arial;
+    font-style: bold;
+    font-size: 3vw;
+    text-align: center;
+    line-height: 450px;
+
+    height: 500px;
+
+
+    position: relative;
+    top: 30px;
+
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    z-index: -1;
+
+  }
+
+  .aPropos{
+    color: darkgrey ;
+    transition: all 0.5s;
+    display: block;
+    position: relative;
+    right: -48%;
+    width: 15%;
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    font-family: arial;
+    background-color: gainsboro;
+}
+
+
+.contenu
+{
+    margin: 8em 4em;
+    text-align: justify;
+    font-family:sans-serif;
+    height: auto;
+    width: auto;
+    display: block;
+    background-color: whitesmoke;
+    padding:70px;
+    color: grey;
+    line-height: 35px;
+}
+
+  .intro h1
+  {
+      font-size: 1.8vw;
+  }
+
+  .intro img
+  {
+      width: 50vw;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+  }
+
+  .intro span
+  {
+    font-size: 1.2vw;
+  }
+
+.origine img
+{
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.origine span
+{
+  font-size: 1.2vw;
+}
+
+.origine h1
+{
+    font-size: 1.8vw;
+}
+
+.origine{
+    display: block;
+}
+
+.histoire span{
+    font-size: 1.2vw;
+}
+
+.histoire h1
+{
+    font-size: 1.8vw;
+}
+
+.histoire{
+    display: block;
+}
+
+.selectionProduits span
+{
+    font-size: 1.2vw;
+}
+
+.selectionProduits h1
+{
+    font-size: 1.8vw;
+}
+
+.selectionProduits
+{
+    display: block;
+}
+
+.selectionProduits img
+{
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}

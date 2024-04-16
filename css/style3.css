@@ -1,0 +1,218 @@
+body
+{
+    margin: 0px;
+    padding:0;
+    
+}
+
+
+#navbar{
+    display: block;
+    transition: top 0.8s;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+#navbar a {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    position: relative;
+    top: -95px;
+
+}
+
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 70px;
+    width: auto;
+    
+}
+
+.titrePrincipal
+{
+    margin-top: 0;
+    padding:10px;
+    line-height: 70px;
+    height: 79px;
+    margin-right:0 ;
+
+    background-color: #8B0000;
+    color: white;
+    font-family:sans-serif;
+    font-size: 30px;
+    text-emphasis: bold;
+
+    text-align: left;
+    padding-left: 100px;
+
+}
+   
+
+.nousContacter{
+    color: darkgrey ;
+    transition: all 0.5s;
+    display: block;
+    position: relative;
+    right: -46%;
+    width: 15%;
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    font-family: arial;
+    background-color: gainsboro;
+}
+
+
+
+.aPropos{
+    color: darkgrey ;
+    transition: all 0.5s;
+    position: relative;
+    right: -48%;
+    width: 15%;
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    z-index: 1;
+    font-family: arial;
+}
+
+.aPropos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.3s;
+    background-color: 	rgb(232,232,232);
+}
+.aPropos:hover::before {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+}
+.aPropos::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid gainsboro;
+    transform: scale(1.2,1.2);
+}
+.aPropos:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+.oùNousTrouver{
+    color: darkgrey ;
+    transition: all 0.5s;
+    position: relative;
+    right: -47%;
+    height: auto;
+    width: 15%;
+    text-align: center;
+    line-height: 50px;
+    padding: 0.01%;
+    font-size: 1.2vw;
+    z-index: 1;
+    font-family: arial;
+}
+
+.oùNousTrouver::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.3s;
+    background-color: 	rgb(232,232,232);
+}
+.oùNousTrouver:hover::before {
+    opacity: 0;
+    transform: scale(0.5,0.5);
+}
+.oùNousTrouver::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid gainsboro;
+    transform: scale(1.2,1.2);
+}
+.oùNousTrouver:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+.contenu
+{
+    margin: 7em 4em;
+    text-align: justify;
+    font-family:sans-serif;
+    font-size: 20px;
+    height: 80%;
+    width: auto;
+    background-color: whitesmoke;
+    padding:70px;
+    color: grey;
+    line-height: 35px;
+}
+
+
+.parallax {
+    background-image: url("../images/exterieur.jpg");
+
+    color: white;
+    font-family: Arial;
+    font-style: bold;
+    font-size: 3vw;
+    text-align: center;
+    line-height: 450px;
+
+    height: 500px;
+
+    position: relative;
+    top: 30px;
+
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+  }
+
+  .titreNousContacter
+  {
+      font-size: 30px;
+  }
+
+  .contenu a{
+      color: grey;
+  }

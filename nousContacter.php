@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style3.css">
+    <title>Nous contacter</title>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar">
+            <img src="images/logo.jpg" alt="logo" class="logo">
+            <h1 class="titrePrincipal">Boucherie L.V Patrick</h1>
+
+            
+            <a class="aPropos" href="index.php">A propos</a>
+
+            <a class="oùNousTrouver" href="ouNousTrouver.php">Où nous trouver</a>
+
+            <a class="nousContacter">Commander</a>
+
+          
+
+        </div>
+
+        <div class = "parallax"> 
+            <h1 class="titre">Boucherie de Captieux</h1>
+        </div>
+
+        <div class = "contenu">
+            <span class="titreNousContacter"><strong>Nous contacter <br> <br></strong></span>
+            <span>
+                <strong>Téléphone: </strong>05 56 65 62 85<br> 
+                
+            </span> 
+        </div>
+    </div>
+
+        <?php
+
+   
+    ?>
+<div class = "contenu">
+<h2><strong> Formulaire de Commande </strong></h2>
+ 
+<form method="post" action="traitement.php" method="post">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom_personne" name="nom_personne" required><br><br>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom_personne" name="prenom_personne" required><br><br>
+
+    <label for="telephone">Numéro de Téléphone :</label>
+    <input type="tel" id="telephone" name="telephone" required><br><br>
+
+    <label for="cp">Code Postal :</label>
+    <input type="cp" id="cp" name="cp" required><br><br>
+
+    <label for="ville">Ville :</label>
+    <input type="ville" id="ville" name="ville" required><br><br>
+
+    <label for="commande">Commande :</label><br>
+    <textarea id="commande" name="commande" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="date_recuperation">Date de Récupération :</label>
+    <input type="date" id="date_recuperation" name="date_recuperation" required><br><br>
+
+    <input type="submit" value="Valider la Commande" >
+     
+     <!-- <action="traitement.php" method="post">
+   Vos champs de formulaire ici -->
+    
+
+</form>
+    </div>
+        </tbody>
+    </table>
+
+
+
+</body>
+</html>
