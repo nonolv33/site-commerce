@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>A propos</title>
+</head>
+<body>
+
+    <div class="container">
+       
+        <nav class="navbar">
+
+            <img src="images/logo.jpg" alt="logo" class="logo">
+            <h1 class="titrePrincipal">Boucherie L.V Patrick</h1>
+            
+            <a class="aPropos">A propos</a>
+
+            <a class="oùNousTrouver" href="ouNousTrouver.hmtl">Où nous trouver</a>
+
+            <a class="nousContacter" href="nousContacter.html">Commander</a>
+
+            
+           
+        </nav>
+
+        <div class = "parallax"> 
+            <h1 class="titre">Boucherie de Captieux</h1>
+        </div>
+
+        <div class = "contenu">
+
+            <div class="intro">
+                <h1>A propos <br></h1>
+
+                <span>  
+                    Bienvenue sur le site web de la boucherie de Captieux. 
+                    Vous trouverez ici plusieurs informations telles que l'origine de nos viandes, notre histoire, notre localisation et nos coordonnées. 
+                    Nous espérons vous convaincre de l'excellence de nos viandes et produits et vous attendons avec impatience dans notre boucherie. <br> 
+                </span>
+                <span>
+                    <img src="images/le patron.jpg" alt="image de la boucherie de Captieux"width="30%">
+                </span>
+                
+            </div>
+
+
+            <div class="origine">
+                <h1> <br> <br> <br> Origine de nos viandes et produits <br></h1>
+                <span>
+                    La boucherie de Captieux vous propose des viandes et produits d'exception en circuit court quand possible. 
+                    Nous prêtons une attention particulière à l'éco-responsabilité de nos viandes et favorisons le commerce avec les petits producteurs. 
+                    Ainsi les viandes et produits que vous achetez dans notre boucherie protègent l'environnement et soutiennent les producteurs locaux.
+                </span>
+               
+            </div>
+
+            <div class="histoire">
+                <h1> <br> <br> Notre histoire <br></h1>
+                <span>
+                Je me présente, je m'appelle Patrick Le verge et avec ma femme Florence nous sommes les heureux responsables de la boucherie de Captieux. 
+                C'est dans cette même boucherie que j'ai commencé à apprendre le métier de boucher, perpétuant ainsi une tradition d'excellence et de passion pour le métier. 
+                Mon objectif est de vous proposer des viandes et produits de la plus haute qualité, sélectionnés avec soin et attention. </span>
+            </div>
+
+            <div class="selectionProduits">
+                <h1> <br> <br>Notre sélection de produits <br></h1>
+                <span>
+                    Notre boucherie vous propose une large sélection de viandes et produits afin de vous permettre de varier les plaisirs. 
+                </span>
+                <span class="img_origine_container1">
+                    <img src="images/selectionProduit.png" alt="Sélection de produits proposés par la boucherie">
+                </span> 
+            </div>
+
+
+        </div>
+    </div>
+       
+    <script type="text/javascript">
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+
+        var currentScrollPos = window.pageYOffset
+        if (prevScrollpos > currentScrollPos){
+            document.getElementById("navbar").style.top = "0";
+        }else{
+            document.getElementById("navbar").style.top = "-100px";
+        }
+
+        prevScrollpos = currentScrollPos;
+    }
+
+    </script>
+    
+</body>
+</html>

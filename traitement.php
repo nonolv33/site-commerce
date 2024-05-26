@@ -2,44 +2,93 @@
 // Vérification que le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des données du formulaire
-    $nom_personne = $_POST["nom_personne"];
-    $prenom_personne = $_POST["prenom_personne"];
-    $telephone = $_POST["telephone"];
-    $commande = $_POST["commande"];
-    $date_recuperation = $_POST["date_recuperation"];
+    $nom = isset($_POST["nom"]) ? $_POST["nom"] : '';
+    $prenom = isset($_POST["prenom"]) ? $_POST["prenom"] : '';
+    $telephone = isset($_POST["telephone"]) ? $_POST["telephone"] : '';
+    $commandes = isset($_POST["commande"]) ? $_POST["commande"] : '';
+    $date_commande = isset($_POST["date_commande"]) ? $_POST["date_commande"] : '';
+    $categories = isset($_POST["categories"]) ? $_POST["categories"] : '';  
+    $adresse = isset($_POST["adresse"]) ? $_POST["adresse"] : '';
+    $code_postal = isset($_POST["code_postal"]) ? $_POST["code_postal"] : '';
+    $ville = isset($_POST["ville"]) ? $_POST["ville"] : '';
 
-    // Connexion à la base de données
-    $conn = mysqli_connect("localhost", "root", "", "boucherie_db");
+    // Connexion à la base de données PostgreSQL
+    $host = 'localhost';
+    $port = '5432';
+    $dbname = 'db_boucherie';
+    $user = 'postgres';
+    $password = 'fidji333';
 
-    // Vérifier la connexion
-    if (!$conn) {
-        die("La connexion à la base de données a échoué : " . mysqli_connect_error());
+       // Convertir la chaîne de catégories en un tableau PostgreSQL
+       $categories_array = '{' . implode(',', array_map('trim', explode(',', $categories))) . '}';
+    
+       $sql_commandes = "INSERT INTO commandes (categories, date_commande, commentaire) VALUES (:categories, :date_commande, :commandes)";
+       $sql_utilisateurs = "INSERT INTO utilisateurs (nom, prenom, telephone, adresse, code_postal, ville) VALUES (:nom, :prenom, :telephone, :adresse, :code_postal, :ville)";
+   
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+        echo "Erreur de connexion : " . $e->getMessage();
+        exit();
     }
 
-    // Préparer la requête SQL pour insérer les données dans la table commande
-    $sql_commande = "INSERT INTO commande (nom_personne, prenom_personne, commande, date_recuperation) VALUES ('$nom_personne', '$prenom_personne',  '$commande', '$date_recuperation')";
+    // Préparer la requête SQL avec des paramètres liés
+    $sql = "INSERT INTO commandes (categories, date_commande, commentaire) VALUES (:categories, :date_commande, :commandes)";
 
-    // Exécuter la requête SQL
-    if (mysqli_query($conn, $sql_commande)) {
+    try {
+        // Préparer et exécuter la requête avec des paramètres liés
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':categories', $categories);
+        $stmt->bindParam(':date_commande', $date_commande);
+        $stmt->bindParam(':commandes', $commandes);
+        $stmt->execute();
+    
         echo "La commande a été enregistrée avec succès.";
-    } else {
-        echo "Erreur lors de l'enregistrement de la commande : " . mysqli_error($conn);
+    } catch (PDOException $e) {
+        // En cas d'erreur, afficher le message d'erreur
+        echo "Erreur lors de l'enregistrement de la commande : " . $e->getMessage();
     }
-
-    // Requête SQL pour insérer les données dans la table personne
-$sql_personne = "INSERT INTO personne (nom_personne, prenom_personne, telephone, cp, ville) VALUES ('$nom_personne', '$prenom_personne', '$telephone','$cp', '$ville')";
-
-// Exécuter la requête pour la table personne
-if ($conn->query($sql_personne) === TRUE) {
-    echo "Données insérées avec succès dans la table personne.";
-} else {
-    echo "Erreur lors de l'insertion des données dans la table personne : " . $conn->error;
-}
+    
     // Fermer la connexion à la base de données
-    mysqli_close($conn);
+    $conn = null;
 } else {
     // Redirection vers la page du formulaire si le formulaire n'a pas été soumis
-    header("Location: votre_page_de_formulaire.php");
+    header("Location: nousContacter.php");
     exit();
 }
+// Connexion à la base de données
+// (Assurez-vous d'avoir déjà établi la connexion à la base de données dans votre script PHP)
+
+// Sélectionnez les catégories depuis la table "catégorie"
+$sql_categories = "SELECT * FROM categorie";
+$stmt_categories = $conn->query($sql_categories);
+$categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
+
+// Connexion à la base de données
+// (Assurez-vous d'avoir déjà établi la connexion à la base de données dans votre script PHP)
+
+// Exécutez la requête SQL pour récupérer les catégories
+$stmt_categories = $conn->query($sql_categories);
+
+// Vérifiez si des catégories sont récupérées
+if ($stmt_categories) {
+    // Si des catégories sont récupérées, stockez-les dans la variable $categories
+    $categories = $stmt_categories->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    // Si aucune catégorie n'est récupérée, définissez $categories comme un tableau vide
+    $categories = [];
+}
+
+
+// Vérifiez si la connexion à la base de données est établie
+if ($conn) {
+    // La connexion à la base de données est établie avec succès
+} else {
+    // La connexion à la base de données a échoué
+    echo "Erreur : Impossible de se connecter à la base de données.";
+    exit();
+}
+
 ?>
