@@ -12,12 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $code_postal = isset($_POST["code_postal"]) ? $_POST["code_postal"] : '';
     $ville = isset($_POST["ville"]) ? $_POST["ville"] : '';
 
-    // Connexion à la base de données PostgreSQL
+    // Connexion à la base de données PostgreSQL en version local 
+    // Faire réglage sur Vercel pour le déployer
+    // Ne pas laisser les informations en clair 
     $host = 'localhost';
     $port = '5432';
     $dbname = 'db_boucherie';
     $user = 'postgres';
     $password = 'fidji333';
+
+ 
 
        // Convertir la chaîne de catégories en un tableau PostgreSQL
        $categories_array = '{' . implode(',', array_map('trim', explode(',', $categories))) . '}';
